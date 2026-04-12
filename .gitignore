@@ -1,3 +1,5 @@
 /.direnv
 /build
 /lib/__pycache__
+/tex/indent.log
+/tex/resume-format.bak0
