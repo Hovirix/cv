@@ -41,9 +41,9 @@ tasks:
   pdf:
     desc: Validate source, render TeX, compile PDF
     cmds:
-      - task validate 
-      - task render 
-      - task compile 
+      - task validate
+      - task render
+      - task compile
 
   all:
     desc: Build PDFs for all cv/*.yaml files
@@ -53,27 +53,3 @@ tasks:
           b=$(basename "$f" .yaml)
           task pdf YAML_SOURCE="$f" TEX_OUT="build/${b}.tex" OUT_DIR="build"
         done
-
-  encrypt:
-    desc: Encrypt one CV YAML file in place with sops
-    requires:
-      vars:
-        - SOPS_AGE_RECIPIENTS
-    cmds:
-      - sops --encrypt --in-place --age "{{.SOPS_AGE_RECIPIENTS}}" "{{.YAML_SOURCE}}"
-
-  encrypt-all:
-    desc: Encrypt all cv/*.yaml files in place with sops
-    requires:
-      vars:
-        - SOPS_AGE_RECIPIENTS
-    cmds:
-      - |
-        for f in cv/*.yaml; do
-          sops --encrypt --in-place --age "{{.SOPS_AGE_RECIPIENTS}}" "$f"
-        done
-
-  decrypt:
-    desc: Decrypt one CV YAML file to stdout
-    cmds:
-      - sops --decrypt "{{.YAML_SOURCE}}"
