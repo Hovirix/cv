@@ -1,55 +1,29 @@
 version: '3'
 
 vars:
-  YAML_SOURCE: cv/cv.yaml
   TEMPLATE: cv/cv.tex.jinja
-  TEX_OUT: build/cv.tex
-  OUT_DIR: build
   TEXINPUTS: 'tex//:'
   TEX_CWD: tex
 
 tasks:
-  default:
-    desc: List available tasks
-    cmds:
-      - task --list
-
-  validate:
-    desc: Validate source YAML schema
-    cmds:
-      - python -m lib.cli validate --yaml-path {{.YAML_SOURCE}}
-
-  render:
-    desc: Render TeX from source YAML and template
-    cmds:
-      - |
-        python -m lib.cli render \
-          --yaml-path {{.YAML_SOURCE}} \
-          --template-path {{.TEMPLATE}} \
-          --out {{.TEX_OUT}}
-
-  compile:
-    desc: Compile rendered TeX to PDF
-    cmds:
-      - |
-        python -m lib.cli compile \
-          --tex-path {{.TEX_OUT}} \
-          --out-dir {{.OUT_DIR}} \
-          --texinputs {{.TEXINPUTS}} \
-          --tex-cwd {{.TEX_CWD}}
-
-  pdf:
-    desc: Validate source, render TeX, compile PDF
-    cmds:
-      - task validate
-      - task render
-      - task compile
-
-  all:
-    desc: Build PDFs for all cv/*.yaml files
+  build:
+    desc: Build all CVs in cv/*.yaml
     cmds:
       - |
         for f in cv/*.yaml; do
+          [ -e "$f" ] || continue
           b=$(basename "$f" .yaml)
-          task pdf YAML_SOURCE="$f" TEX_OUT="build/${b}.tex" OUT_DIR="build"
+
+          python -m lib.cli validate --yaml-path "$f"
+
+          python -m lib.cli render \
+            --yaml-path "$f" \
+            --template-path "{{.TEMPLATE}}" \
+            --out "build/${b}.tex"
+
+          python -m lib.cli compile \
+            --tex-path "build/${b}.tex" \
+            --out-dir "build/${b}" \
+            --texinputs "{{.TEXINPUTS}}" \
+            --tex-cwd "{{.TEX_CWD}}"
         done
