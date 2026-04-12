@@ -32,21 +32,21 @@
 \RequirePackage{hyperref}
 
 \ifxetex
-  \RequirePackage[quiet]{fontspec}
-  \RequirePackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX}
+	\RequirePackage[quiet]{fontspec}
+	\RequirePackage{unicode-math}
+	\defaultfontfeatures{Ligatures=TeX}
 \else
-  \RequirePackage[T1]{fontenc}
-  \RequirePackage[utf8]{inputenc}
+	\RequirePackage[T1]{fontenc}
+	\RequirePackage[utf8]{inputenc}
 \fi
 
 \hypersetup{
-  pdftitle={},
-  pdfauthor={},
-  pdfsubject={},
-  pdfkeywords={},
-  colorlinks=false,
-  allbordercolors=white
+	pdftitle={},
+	pdfauthor={},
+	pdfsubject={},
+	pdfkeywords={},
+	colorlinks=false,
+	allbordercolors=white
 }
 
 %-------------------------------------------------------------------------------
@@ -162,51 +162,51 @@
 
 \newcounter{colorCounter}
 \def\@sectioncolor#1#2#3{%
-  {%
-    \color{awesome}#1#2#3%
-  }%
-  \stepcounter{colorCounter}%
+	{%
+			\color{awesome}#1#2#3%
+		}%
+	\stepcounter{colorCounter}%
 }
 
 %-------------------------------------------------------------------------------
 % Fonts
 %-------------------------------------------------------------------------------
 \ifxetex
-  \def\@robotofullspec{%
-    Path=\@fontdir,
-    UprightFont=*-Regular,
-    ItalicFont=*-Italic,
-    BoldFont=*-Bold,
-    BoldItalicFont=*-BoldItalic%
-  }
+	\def\@robotofullspec{%
+		Path=\@fontdir,
+		UprightFont=*-Regular,
+		ItalicFont=*-Italic,
+		BoldFont=*-Bold,
+		BoldItalicFont=*-BoldItalic%
+	}
 
-  \newfontfamily\headerfont[\@robotofullspec]{Roboto}
-  \newfontfamily\footerfont[\@robotofullspec]{Roboto}
-  \newfontfamily\bodyfont[\@robotofullspec]{Roboto}
+	\newfontfamily\headerfont[\@robotofullspec]{Roboto}
+	\newfontfamily\footerfont[\@robotofullspec]{Roboto}
+	\newfontfamily\bodyfont[\@robotofullspec]{Roboto}
 
-  \newfontfamily\headerfontlight[
-    Path=\@fontdir,
-    UprightFont=*-Thin,
-    ItalicFont=*-ThinItalic,
-    BoldFont=*-Medium,
-    BoldItalicFont=*-MediumItalic
-  ]{Roboto}
+	\newfontfamily\headerfontlight[
+		Path=\@fontdir,
+		UprightFont=*-Thin,
+		ItalicFont=*-ThinItalic,
+		BoldFont=*-Medium,
+		BoldItalicFont=*-MediumItalic
+	]{Roboto}
 
-  \newfontfamily\bodyfontlight[
-    Path=\@fontdir,
-    UprightFont=*-Light,
-    ItalicFont=*-LightItalic,
-    BoldFont=*-Bold,
-    BoldItalicFont=*-BoldItalic
-  ]{Roboto}
+	\newfontfamily\bodyfontlight[
+		Path=\@fontdir,
+		UprightFont=*-Light,
+		ItalicFont=*-LightItalic,
+		BoldFont=*-Bold,
+		BoldItalicFont=*-BoldItalic
+	]{Roboto}
 
-  \setmainfont[\@robotofullspec]{Roboto}
+	\setmainfont[\@robotofullspec]{Roboto}
 \else
-  \newcommand{\headerfont}{\rmfamily}
-  \newcommand{\footerfont}{\rmfamily}
-  \newcommand{\bodyfont}{\rmfamily}
-  \newcommand{\headerfontlight}{\rmfamily}
-  \newcommand{\bodyfontlight}{\rmfamily}
+	\newcommand{\headerfont}{\rmfamily}
+	\newcommand{\footerfont}{\rmfamily}
+	\newcommand{\bodyfont}{\rmfamily}
+	\newcommand{\headerfontlight}{\rmfamily}
+	\newcommand{\bodyfontlight}{\rmfamily}
 \fi
 
 %-------------------------------------------------------------------------------
@@ -251,19 +251,19 @@
 % Utilities
 %-------------------------------------------------------------------------------
 \newcommand{\roundedheaderbox}[2]{%
-  \begin{tcolorbox}[
-    colback=#1,
-    colframe=#1,
-    boxrule=0pt,
-    arc=\@headerboxradius,
-    left=10pt,
-    right=10pt,
-    top=10pt,
-    bottom=10pt,
-    width=\textwidth
-  ]
-    #2
-  \end{tcolorbox}%
+	\begin{tcolorbox}[
+			colback=#1,
+			colframe=#1,
+			boxrule=0pt,
+			arc=\@headerboxradius,
+			left=10pt,
+			right=10pt,
+			top=10pt,
+			bottom=10pt,
+			width=\textwidth
+		]
+		#2
+	\end{tcolorbox}%
 }
 
 \newcommand{\displayurl}[1]{\href{#1}{\nolinkurl{#1}}}
@@ -307,8 +307,8 @@
 
 \newcommand*{\letterenclname}[1][Enclosure]{\def\@letterenclname{#1}}
 \newcommand*{\letterenclosure}[2][]{%
-  \ifthenelse{\equal{#1}{}}{}{\def\@letterenclname{#1}}%
-  \def\@letterenclosure{#2}%
+	\ifthenelse{\equal{#1}{}}{}{\def\@letterenclname{#1}}%
+	\def\@letterenclosure{#2}%
 }
 
 \newcommand*{\headersocialsep}[1][\quad\textbar\quad]{\def\@headersocialsep{#1}}
@@ -318,233 +318,233 @@
 % Header / footer
 %-------------------------------------------------------------------------------
 \newcommand*{\makecvheader}{%
-  \begin{center}
-    \headerfirstnamestyle{\@firstname}\ \headerlastnamestyle{\@lastname}\\
-    \vspace{0.4mm}
+	\begin{center}
+		\headerfirstnamestyle{\@firstname}\ \headerlastnamestyle{\@lastname}\\
+		\vspace{0.4mm}
 
-    \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\}}
-    \vspace{0.4mm}
+		\ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\}}
+		\vspace{0.4mm}
 
-    \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\}}
-    \vspace{-0.5mm}
+		\ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\}}
+		\vspace{-0.5mm}
 
-    \headersocialstyle{%
-      \newbool{isstart}%
-      \setbool{isstart}{true}%
+		\headersocialstyle{%
+			\newbool{isstart}%
+			\setbool{isstart}{true}%
 
-      \ifthenelse{\isundefined{\@mobile}}{}{%
-        \faMobile\ \@mobile%
-        \setbool{isstart}{false}%
-      }%
+			\ifthenelse{\isundefined{\@mobile}}{}{%
+				\faMobile\ \@mobile%
+				\setbool{isstart}{false}%
+			}%
 
-      \ifthenelse{\isundefined{\@email}}{}{%
-        \ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
-        \href{mailto:\@email}{\faEnvelope\ \@email}%
-      }%
+			\ifthenelse{\isundefined{\@email}}{}{%
+				\ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
+				\href{mailto:\@email}{\faEnvelope\ \@email}%
+			}%
 
-      \ifthenelse{\isundefined{\@link}}{}{%
-        \ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
-        \href{http://\@link}{\faLink\ \@link}%
-      }%
+			\ifthenelse{\isundefined{\@link}}{}{%
+				\ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
+				\href{http://\@link}{\faLink\ \@link}%
+			}%
 
-      \ifthenelse{\isundefined{\@github}}{}{%
-        \ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
-        \href{https://github.com/\@github}{\faGithubSquare\ \@github}%
-      }%
+			\ifthenelse{\isundefined{\@github}}{}{%
+				\ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
+				\href{https://github.com/\@github}{\faGithubSquare\ \@github}%
+			}%
 
-      \ifthenelse{\isundefined{\@stackoverflowid}}{}{%
-        \ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
-        \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\ \@stackoverflowname}%
-      }%
+			\ifthenelse{\isundefined{\@stackoverflowid}}{}{%
+				\ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
+				\href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\ \@stackoverflowname}%
+			}%
 
-      \ifthenelse{\isundefined{\@linkedin}}{}{%
-        \ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
-        \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\ \@linkedin}%
-      }%
+			\ifthenelse{\isundefined{\@linkedin}}{}{%
+				\ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
+				\href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\ \@linkedin}%
+			}%
 
-      \ifthenelse{\isundefined{\@location}}{}{%
-        \ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
-        \faMapMarker\ \@location%
-      }%
+			\ifthenelse{\isundefined{\@location}}{}{%
+				\ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
+				\faMapMarker\ \@location%
+			}%
 
-      \ifthenelse{\isundefined{\@twitter}}{}{%
-        \ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
-        \href{https://twitter.com/\@twitter}{\faTwitter\ \@twitter}%
-      }%
+			\ifthenelse{\isundefined{\@twitter}}{}{%
+				\ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
+				\href{https://twitter.com/\@twitter}{\faTwitter\ \@twitter}%
+			}%
 
-      \ifthenelse{\isundefined{\@skype}}{}{%
-        \ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
-        \faSkype\ \@skype%
-      }%
-    }\\
+			\ifthenelse{\isundefined{\@skype}}{}{%
+				\ifbool{isstart}{\setbool{isstart}{false}}{\@headersocialsep}%
+				\faSkype\ \@skype%
+			}%
+		}\\
 
-    \ifthenelse{\isundefined{\@quote}}{}{%
-      \vspace{6mm}\headerquotestyle{\@quote\\}\vspace{5mm}%
-    }%
-  \end{center}%
+		\ifthenelse{\isundefined{\@quote}}{}{%
+			\vspace{6mm}\headerquotestyle{\@quote\\}\vspace{5mm}%
+		}%
+	\end{center}%
 }
 
 \newcommand*{\makecvfooter}[3]{%
-  \fancyfoot{}%
-  \fancyfoot[L]{\footerstyle{#1}}%
-  \fancyfoot[C]{\footerstyle{#2}}%
-  \fancyfoot[R]{\footerstyle{#3}}%
+	\fancyfoot{}%
+	\fancyfoot[L]{\footerstyle{#1}}%
+	\fancyfoot[C]{\footerstyle{#2}}%
+	\fancyfoot[R]{\footerstyle{#3}}%
 }
 
 %-------------------------------------------------------------------------------
 % Structural commands
 %-------------------------------------------------------------------------------
 \newcommand{\cvsection}[1]{%
-  \par\addvspace{\@sectionspacebefore}%
-  \phantomsection
-  \sectionstyle{#1}%
-  \color{gray}\vhrulefill{0.10pt}%
-  \par\nobreak\addvspace{\@sectionspaceafter}%
+	\par\addvspace{\@sectionspacebefore}%
+	\phantomsection
+	\sectionstyle{#1}%
+	\color{gray}\vhrulefill{0.10pt}%
+	\par\nobreak\addvspace{\@sectionspaceafter}%
 }
 
 \newcommand{\cvsubsection}[1]{%
-  \phantomsection
-  \subsectionstyle{#1}%
+	\phantomsection
+	\subsectionstyle{#1}%
 }
 
 %-------------------------------------------------------------------------------
 % Environments
 %-------------------------------------------------------------------------------
 \newenvironment{cvitems}{
-  \vspace{\@bulletspacebefore}
-  \begin{justify}
-    \begin{itemize}[leftmargin=\@bulletindent, nosep, noitemsep]
-      \setlength{\parskip}{0pt}
-      \renewcommand{\labelitemi}{\bullet}
-}{
-    \end{itemize}
-  \end{justify}
-  \vspace{\@bulletspaceafter}
+	\vspace{\@bulletspacebefore}
+	\begin{justify}
+		\begin{itemize}[leftmargin=\@bulletindent, nosep, noitemsep]
+			\setlength{\parskip}{0pt}
+			\renewcommand{\labelitemi}{\bullet}
+			}{
+		\end{itemize}
+	\end{justify}
+	\vspace{\@bulletspaceafter}
 }
 
 \newenvironment{cvparagraphs}{
-  \vspace{-4mm}
-  \begin{justify}
-    \begin{itemize}[leftmargin=-2ex, nosep, noitemsep, before=\achievementstyle]
-      \setlength{\parskip}{0pt}
-      \renewcommand{\labelitemi}{\bullet}
-}{
-    \end{itemize}
-  \end{justify}
-  \vspace{-2mm}
+	\vspace{-4mm}
+	\begin{justify}
+		\begin{itemize}[leftmargin=-2ex, nosep, noitemsep, before=\achievementstyle]
+			\setlength{\parskip}{0pt}
+			\renewcommand{\labelitemi}{\bullet}
+			}{
+		\end{itemize}
+	\end{justify}
+	\vspace{-2mm}
 }
 
 \newenvironment{cventries}{}{}
 
 \newcommand*{\cventry}[5]{%
-  \ifempty{#2#3}
-    {\entrytitlestyle{#1} \hfill \entrydatestyle{#4}\\\descriptionstyle{#5}}
-    {\entrytitlestyle{#2} \hfill \entrylocationstyle{#3}\\
-     \entrypositionstyle{#1} \hfill \entrydatestyle{#4}\\
-     \descriptionstyle{#5}}%
-  \vspace{\@entryspacing}%
+	\ifempty{#2#3}
+	{\entrytitlestyle{#1} \hfill \entrydatestyle{#4}\\\descriptionstyle{#5}}
+	{\entrytitlestyle{#2} \hfill \entrylocationstyle{#3}\\
+		\entrypositionstyle{#1} \hfill \entrydatestyle{#4}\\
+		\descriptionstyle{#5}}%
+	\vspace{\@entryspacing}%
 }
 
 \newenvironment{cvsubentries}{
-  \begin{center}
-}{
-  \end{center}
+	\begin{center}
+		}{
+	\end{center}
 }
 
 \newcommand*{\cvsubentry}[4]{%
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
-    \setlength\leftskip{0.2cm}
-    \subentrytitlestyle{#2} &
-    \ifthenelse{\equal{#1}{}}{\subentrydatestyle{#3}}{}%
-    \ifthenelse{\equal{#1}{}}{}{\subentrypositionstyle{#1} & \subentrydatestyle{#3} \\}%
-    \ifthenelse{\equal{#4}{}}{}{\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}}\\}%
-  \end{tabular*}
+	\setlength\tabcolsep{0pt}
+	\setlength{\extrarowheight}{0pt}
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
+		\setlength\leftskip{0.2cm}
+		\subentrytitlestyle{#2} &
+		\ifthenelse{\equal{#1}{}}{\subentrydatestyle{#3}}{}%
+		\ifthenelse{\equal{#1}{}}{}{\subentrypositionstyle{#1} & \subentrydatestyle{#3} \\}%
+		\ifthenelse{\equal{#4}{}}{}{\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}}\\}%
+	\end{tabular*}
 }
 
 \newenvironment{cvhonors}{
-  \begin{center}
-    \setlength\tabcolsep{0pt}
-    \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{13.0cm} R{2.5cm}}
-}{
-    \end{tabular*}
-  \end{center}
+	\begin{center}
+		\setlength\tabcolsep{0pt}
+		\setlength{\extrarowheight}{0pt}
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{13.0cm} R{2.5cm}}
+			}{
+		\end{tabular*}
+	\end{center}
 }
 
 \newcommand*{\cvhonor}[4]{%
-  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3}\\
+	\honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3}\\
 }
 
 \newenvironment{cvachievements}{
-  \vspace{-2mm}
-  \bodyfontlight
-  \begin{justify}
-    \fontsize{\@achievementfontsize}{1em}\selectfont
-    \begin{itemize}[leftmargin=0ex, label={}, nosep, noitemsep, before=\achievementstyle]
-      \setlength{\parskip}{\@achievementspacing}
-}{
-    \end{itemize}
-  \end{justify}
-  \vspace{\@achievementspaceafter}
+	\vspace{-2mm}
+	\bodyfontlight
+	\begin{justify}
+		\fontsize{\@achievementfontsize}{1em}\selectfont
+		\begin{itemize}[leftmargin=0ex, label={}, nosep, noitemsep, before=\achievementstyle]
+			\setlength{\parskip}{\@achievementspacing}
+			}{
+		\end{itemize}
+	\end{justify}
+	\vspace{\@achievementspaceafter}
 }
 
 \newenvironment{cvpersonalstatement}{
-  \vspace{4mm}
-  \bodyfontlight
-  \begin{justify}
-    \fontsize{\@personalstatementfontsize}{14pt}\selectfont
-    \begin{itemize}[leftmargin=0ex, label={}, nosep, noitemsep, before=\cvparagraphstyle]
-      \setlength{\parskip}{3mm}
-}{
-    \end{itemize}
-  \end{justify}
-  \vspace{2mm}
+	\vspace{4mm}
+	\bodyfontlight
+	\begin{justify}
+		\fontsize{\@personalstatementfontsize}{14pt}\selectfont
+		\begin{itemize}[leftmargin=0ex, label={}, nosep, noitemsep, before=\cvparagraphstyle]
+			\setlength{\parskip}{3mm}
+			}{
+		\end{itemize}
+	\end{justify}
+	\vspace{2mm}
 }
 
 \newenvironment{cvskills}{
-  \begin{center}
-    \setlength\tabcolsep{1ex}
-    \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l L{20.2cm}}
-}{
-    \end{tabular*}
-  \end{center}
+	\begin{center}
+		\setlength\tabcolsep{1ex}
+		\setlength{\extrarowheight}{0pt}
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l L{20.2cm}}
+			}{
+		\end{tabular*}
+	\end{center}
 }
 
 \newcommand*{\cvskill}[2]{%
-  \skilltypestyle{#1} & \skillsetstyle{#2}\\
+	\skilltypestyle{#1} & \skillsetstyle{#2}\\
 }
 
 \newenvironment{cvlinks}{
-  \vspace{2mm}
-  \bodyfontlight
-  \color{lighttext}
-  \begin{flushright}
-}{
-  \end{flushright}
-  \vspace{2mm}
+	\vspace{2mm}
+	\bodyfontlight
+	\color{lighttext}
+	\begin{flushright}
+		}{
+	\end{flushright}
+	\vspace{2mm}
 }
 
 \newenvironment{cvfooterlink}{
-  \vspace{2mm}
-  \bodyfontlight
-  \color{lighttext}
-  \begin{flushright}
-    \tiny
-}{
-  \end{flushright}
-  \vspace{2mm}
+	\vspace{2mm}
+	\bodyfontlight
+	\color{lighttext}
+	\begin{flushright}
+		\tiny
+		}{
+	\end{flushright}
+	\vspace{2mm}
 }
 
 \newenvironment{cvparagraph}{
-  \vspace{-2mm}
-  \begin{justify}
-    \begin{itemize}[leftmargin=0ex, label={}, nosep, noitemsep, before=\descriptionstyle]
-      \setlength{\parskip}{0pt}
-}{
-    \end{itemize}
-  \end{justify}
-  \vspace{-2mm}
+	\vspace{-2mm}
+	\begin{justify}
+		\begin{itemize}[leftmargin=0ex, label={}, nosep, noitemsep, before=\descriptionstyle]
+			\setlength{\parskip}{0pt}
+			}{
+		\end{itemize}
+	\end{justify}
+	\vspace{-2mm}
 }
