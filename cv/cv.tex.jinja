@@ -105,10 +105,13 @@
     { {{ edu.studyType | latex_escape }} in {{ edu.area | latex_escape }} }
     { {{ edu.institution | latex_escape }} }
     {}
-    {}
+    { {{ edu.startDate | latex_escape | format_date }} -- {{ edu.endDate | latex_escape | format_date if edu.endDate else 'Present' | latex_escape }} }
     {
-      {{ edu.startDate | latex_escape | format_date }} -- {{ edu.endDate | latex_escape | format_date if edu.endDate else 'Present' | latex_escape }}\\
-      {{ edu.highlights | join(' | ') | latex_escape }}
+      \begin{cvitems}
+      {%- for highlight in edu.highlights %}
+        \item { {{ highlight | latex_escape }} }
+      {%- endfor %}
+      \end{cvitems}
     }
 {%- endfor %}
 \end{cventries}
@@ -187,10 +190,7 @@
 \vspace{5mm}
 \begin{center}
   \tiny\color{lightgray}
-  Resume built with LaTeX, view source at
-  \href{https://github.com/lissy93/cv}{github.com/lissy93/cv}.
-  Licensed under MIT (C)
-  \href{ {{ footer.website | latex_escape }} }{ {{ (hero.name ~ ' ' ~ hero.surname) | latex_escape }} } {\the\year}
+  {{ footer.sentence | latex_escape }}
 \end{center}
 
 \

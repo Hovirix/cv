@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 from typing import Annotated
 
-from pydantic import BaseModel, EmailStr, Field, HttpUrl, StringConstraints, ValidationError
+from pydantic import BaseModel, EmailStr, HttpUrl, StringConstraints, ValidationError
 
 from lib.yaml_loader import load_yaml_data
 
@@ -57,9 +57,7 @@ class ProjectItem(BaseModel):
 
 
 class Footer(BaseModel):
-    privacy: HttpUrl
-    website: HttpUrl
-    copyright: str
+    sentence: str
 
 
 class CVSchema(BaseModel):
