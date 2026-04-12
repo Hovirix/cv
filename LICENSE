@@ -1,0 +1,44 @@
+MIT License
+
+Copyright (c) 2026 Hovirix
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+Python dependencies used by this project:
+- Typer: MIT
+- Pydantic: MIT
+- PyYAML: MIT
+- Jinja2: BSD-3-Clause
+- email-validator: MIT
+
+Build and development tooling:
+- Task (go-task): MIT
+- SOPS: MPL-2.0
+- age: BSD-3-Clause
+- treefmt-nix: MIT
+- nixpkgs: MIT
+- flake-utils: MIT
+
+TeX and font assets:
+- TeX Live: LPPL and package-specific TeX licenses
+- Font Awesome font and style files under `tex/fontawesome*.sty` and
+  `tex/fonts/FontAwesome.otf`: SIL Open Font License 1.1 (OFL-1.1)
+- Roboto fonts under `tex/fonts/Roboto-*.ttf*`: Apache License 2.0
