@@ -43,7 +43,7 @@ cv/<name>.yaml
 #### Encryption (Optional)
 
 ```bash
-sops cv/cv.yaml
+sops cv/<name>.yaml
 ```
 
 #### Build
@@ -53,7 +53,7 @@ task build
 ```
 CVs are generated under `build/`.
 
-## Ackoledgement
+## Acknowledgment
 
 * To: [Lissy93](https://github.com/Lissy93/cv) for giving me the idea
 * To: [Awesome-CV](https://github.com/posquit0/Awesome-CV/tree/master) for the template
