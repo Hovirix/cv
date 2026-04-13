@@ -6,14 +6,30 @@ import sys
 from pathlib import Path
 from typing import Annotated
 
-from pydantic import BaseModel, EmailStr, HttpUrl, StringConstraints, ValidationError
+from pydantic import (
+    BaseModel,
+    EmailStr,
+    HttpUrl,
+    StringConstraints,
+    ValidationError,
+    Field,
+)
 
 from lib.yaml_loader import load_yaml_data
 
+ISODate = (
+    Annotated[
+        str,
+        StringConstraints(
+            pattern=r"^(\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\d|3[01]))?)?|Present)$"
+        ),
+    ]
+    | Annotated[int, Field(ge=1900, le=2100)]
+)
 
-ISODate = Annotated[
+GitRepo = Annotated[
     str,
-    StringConstraints(pattern=r"^\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\d|3[01]))?)?$"),
+    StringConstraints(pattern=r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 ]
 
 
@@ -48,12 +64,24 @@ class SkillItem(BaseModel):
     tags: list[str]
 
 
+class AwardItem(BaseModel):
+    title: str
+    event: str
+    location: str
+    date: ISODate
+
+
+class CertificateItem(BaseModel):
+    title: str
+    issuer: str
+    date: ISODate
+
+
 class ProjectItem(BaseModel):
     name: str
     desc: str
-    git: HttpUrl
+    git: GitRepo
     url: HttpUrl
-    highlight: bool
 
 
 class Footer(BaseModel):
@@ -62,12 +90,13 @@ class Footer(BaseModel):
 
 class CVSchema(BaseModel):
     hero: Hero
-    experience: list[ExperienceItem]
-    education: list[EducationItem]
-    skills: list[SkillItem]
-    awards: list[str]
-    projects: list[ProjectItem]
-    footer: Footer
+    experience: list[ExperienceItem] = Field(default_factory=list)
+    education: list[EducationItem] = Field(default_factory=list)
+    skills: list[SkillItem] = Field(default_factory=list)
+    awards: list[AwardItem] = Field(default_factory=list)
+    certificates: list[CertificateItem] = Field(default_factory=list)
+    projects: list[ProjectItem] = Field(default_factory=list)
+    footer: Footer = Field(default_factory=Footer)
 
 
 def validate_yaml_file(path: Path) -> list[str]:

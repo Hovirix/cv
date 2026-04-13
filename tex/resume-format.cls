@@ -464,17 +464,15 @@
 }
 
 \newenvironment{cvhonors}{
-	\begin{center}
-		\setlength\tabcolsep{0pt}
-		\setlength{\extrarowheight}{0pt}
-		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{13.0cm} R{2.5cm}}
-			}{
-		\end{tabular*}
-	\end{center}
+	\setlength\tabcolsep{0pt}
+	\setlength{\extrarowheight}{0pt}
+	\begin{tabular*}{\textwidth}{@{}L{1.1cm}@{\hspace{0.3cm}}L{12.9cm}@{\extracolsep{\fill}}R{3.0cm}@{}}
+		}{
+	\end{tabular*}
 }
 
 \newcommand*{\cvhonor}[4]{%
-	\honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3}\\
+	\honordatestyle{#4} & \honorpositionstyle{#1}\textnormal{, }\honortitlestyle{#2} & \honorlocationstyle{#3}\\
 }
 
 \newenvironment{cvachievements}{

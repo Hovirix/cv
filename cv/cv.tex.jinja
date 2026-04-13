@@ -132,33 +132,39 @@
 {% endif %}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Achievements Statistics
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-{% if achievements is defined and achievements %}
-\cvsection{Stats}
-\vspace{0.5mm}
-\begin{cvachievements}
-  \setlength{\itemsep}{0mm}
-{%- for ach in achievements %}
-  \item { {{ ach.text | markdown_to_latex | safe }}{% if ach.source %} \href{ {{ ach.source | latex_escape }} }{\scriptsize\color{lightgray}\faLink}{% endif %} }
-{%- endfor %}
-\end{cvachievements}
-{% endif %}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Awards
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {% if awards %}
 \cvsection{Awards}
 \vspace{0.5mm}
-\begin{cvachievements}
-  \setlength{\itemsep}{0mm}
+\begin{cvhonors}
 {%- for award in awards %}
-  \item { {{ award | latex_escape }} }
+  \cvhonor
+    { {{ award.title | latex_escape }} }
+    { {{ award.event | latex_escape }} }
+    { {{ award.location | latex_escape }} }
+    { {{ award.date | latex_escape }} }
 {%- endfor %}
-\end{cvachievements}
+\end{cvhonors}
+{% endif %}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Certificates
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{% if certificates %}
+\cvsection{Certificates}
+\vspace{0.5mm}
+\begin{cvhonors}
+{%- for cert in certificates %}
+  \cvhonor
+    { {{ cert.title | latex_escape }} }
+    { {{ cert.issuer | latex_escape }} }
+    { }
+    { {{ cert.date | latex_escape }} }
+{%- endfor %}
+\end{cvhonors}
 {% endif %}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,15 +175,15 @@
 \cvsection{Projects}
 \vspace{0.5mm}
 \begin{cvachievements}
-  \setlength{\itemsep}{0mm}
+  \setlength{\itemsep}{1.8mm}
 {%- for proj in projects %}
-  \item {
-    \hspace{-5pt}
+  \item {\hspace{-5pt}
     \textbf{ {{ proj.name | latex_escape }} }
-    {% if proj.url %}\href{ {{ proj.url | latex_escape }} }{\scriptsize\color{lightgray}\faLink}{% endif %}
     \hfill
-    \href{ {{ proj.git | latex_escape }} }{\hspace{1pt}\faGithub}\\
-    {{ proj.desc | latex_escape }}
+    {\footnotesize\color{darkgray}
+      \href{https://github.com/{{ proj.git | latex_escape }}}{\faGithub\ {{ proj.git | latex_escape }}}
+    }\\[-0.5pt]
+    {\color{gray} {{ proj.desc | latex_escape }}}
   }
 {%- endfor %}
 \end{cvachievements}
