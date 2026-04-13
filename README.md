@@ -18,6 +18,12 @@
 - 📚 Manage multiple CV versions easily  
 - 🔐 Keep sensitive data encrypted if needed  
 
+## Preview
+
+|                Page 1                 |                 Page 2                 |
+| :------------------------------------: | :------------------------------------: |
+| ![CV Page 1](.github/assets/page1.png) | ![CV Page 2](.github/assets/page2.png) |
+
 ## Usage
 
 #### Make sure you have all dependencies, or run:
@@ -45,14 +51,7 @@ sops cv/cv.yaml
 ```bash
 task build
 ```
-
 CVs are generated under `build/`.
-
-## Preview
-
-|                Page 1                 |                 Page 2                 |
-| :------------------------------------: | :------------------------------------: |
-| ![CV Page 1](.github/assets/page1.png) | ![CV Page 2](.github/assets/page2.png) |
 
 ## Ackoledgement
 
