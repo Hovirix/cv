@@ -32,7 +32,25 @@
             go-task
             sops
             age
-            texliveFull
+            (texlive.combine {
+              inherit (texlive)
+                scheme-small
+                xetex
+                fontspec
+                unicode-math
+                enumitem
+                ragged2e
+                geometry
+                fancyhdr
+                xcolor
+                xifthen
+                ifmtarg
+                etoolbox
+                setspace
+                parskip
+                tcolorbox
+                hyperref;
+            })
             python3
             python313Packages.pyyaml
             python313Packages.pydantic
